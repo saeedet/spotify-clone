@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import Login from "./Login";
 import Player from "./Player";
@@ -9,7 +9,7 @@ import { useStateProviderValue } from "./StateProvider";
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [{ user, token }, dispatch] = useStateProviderValue();
+  const [{ token }, dispatch] = useStateProviderValue();
 
   useEffect(() => {
     const hash = getTokenFromUrl();
@@ -34,6 +34,12 @@ function App() {
           type: "SET_PLAYLISTS",
           playlists: playlists,
         });
+        spotify.getPlaylist(playlists.items[0].id).then((res) => {
+          dispatch({
+            type: "SET_CURRENT_PLAYLIST",
+            current_playlist: res,
+          });
+        });
       });
       spotify.getPlaylist("37i9dQZEVXcLktu6qTvHdC").then((res) => {
         dispatch({
@@ -41,14 +47,14 @@ function App() {
           discover_weekly: res,
         });
       });
+      dispatch({
+        type: "SET_SPOTIFY",
+        spotify: spotify,
+      });
     }
-  }, []);
+  }, [token, dispatch]);
 
-  return (
-    <div className="app">
-      {token ? <Player spotify={spotify} /> : <Login />}
-    </div>
-  );
+  return <div className="app">{token ? <Player /> : <Login />}</div>;
 }
 
 export default App;

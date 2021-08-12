@@ -24,3 +24,21 @@
     width: 100%;
   }
 }
+
+.login__instruction {
+  color: white;
+  width: 50vw;
+}
+
+.footer__copyright {
+  color: rgb(99, 94, 94);
+}
+
+.footer__copyright > a {
+  text-decoration: none;
+  color: rgb(80, 80, 199);
+}
+
+.footer__copyright > a:hover {
+  text-decoration: underline;
+}

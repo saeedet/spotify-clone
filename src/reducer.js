@@ -1,9 +1,11 @@
 export const initialState = {
   user: null,
   playlists: [],
+  current_playlist: [],
   playing: false,
-  item: null,
+  current_track: null,
   token: null,
+  spotify: null,
 };
 
 const reducer = (state, action) => {
@@ -30,7 +32,27 @@ const reducer = (state, action) => {
         ...state,
         discover_weekly: action.discover_weekly,
       };
+    case "SET_SPOTIFY":
+      return {
+        ...state,
+        spotify: action.spotify,
+      };
+    case "SET_PLAYING":
+      return {
+        ...state,
+        playing: action.playing,
+      };
 
+    case "SET_CURRENT_TRACK":
+      return {
+        ...state,
+        current_track: action.current_track,
+      };
+    case "SET_CURRENT_PLAYLIST":
+      return {
+        ...state,
+        current_playlist: action.current_playlist,
+      };
     default:
       return state;
   }

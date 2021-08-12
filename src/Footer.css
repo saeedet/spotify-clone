@@ -3,9 +3,10 @@
   justify-content: space-between;
   position: fixed;
   bottom: 0;
-  height: 65px;
+  height: 60px;
   width: 100%;
-  background-color: #282828;
+  background-color: #181818;
+  border-top: 1px solid #282828;
   padding: 20px;
 }
 
@@ -40,8 +41,10 @@
   align-items: center;
   justify-content: space-between;
   max-width: 200px;
+  width: 18vw;
+  overflow: hidden;
   color: white;
-  padding: 0 100px;
+  padding: 0 50px;
 }
 
 .footer__green {
@@ -57,4 +60,27 @@
 .footer__player:hover {
   transition: 0.2s ease-in-out;
   transform: scale(1.1) !important;
+}
+
+.footer__songInfo > p,
+h5 {
+  white-space: nowrap;
+  width: 18vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.footer__songInfo > p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+
+.footer__songInfo > h5 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.footer__right * .MuiSlider-root {
+  color: green;
 }
