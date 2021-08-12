@@ -26,6 +26,7 @@
 }
 
 .login__instruction {
+  padding: 20px;
   color: white;
   width: 50vw;
 }
