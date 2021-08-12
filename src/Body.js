@@ -9,7 +9,7 @@ import SongRow from "./SongRow";
 import PauseCircleFilledIcon from "@material-ui/icons/PauseCircleFilled";
 
 function Body() {
-  const [{ discover_weekly, spotify, playing, current_playlist }, dispatch] =
+  const [{ spotify, playing, current_playlist }, dispatch] =
     useStateProviderValue();
   const playPlaylist = () => {
     spotify
