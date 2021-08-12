@@ -4,7 +4,7 @@ export const authEndpoint = "https://accounts.spotify.com/authorize";
 
 const redirectUri = "https://spotify-clone-nu-two.vercel.app/";
 
-const { CLIENT_ID } = process.env;
+const CLIENT_ID = process.env;
 
 const scopes = [
   "user-read-currently-playing",
